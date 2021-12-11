@@ -29,16 +29,13 @@ export default function App() {
         const loop = async () => {
             const nextImageTensor = images.next().value;
             if (!model || !nextImageTensor) {
-                console.log("this is model", model);
-                console.log("this is model", nextImageTensor);
                 throw new Error("No Image or image Tensor ");
             }
             model
                 .detect(nextImageTensor)
                 .then((prediction) => {
                     //Draw Box here
-                    console.log("here")
-                    console.log("this is predictoin ", prediction);
+                    console.log("this is prediction ", prediction);
 
                     drawRectangle( prediction, nextImageTensor );
                 })
